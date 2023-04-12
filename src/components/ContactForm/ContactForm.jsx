@@ -14,9 +14,9 @@ export const ContactForm = () => {
     const form = event.target;
     const [name, number] = form.elements;
 
-    const isReapeat = contacts.some(element => element.name.toLowerCase() === name.value.toLowerCase())
+    const isRepeat = contacts.some(element => element.name.toLowerCase() === name.value.toLowerCase())
 
-    if(isReapeat){
+    if(isRepeat){
       form.reset();
       return alert(`${name.value} is already in contacts`);
     }

@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { fetchContacts } from './operations';
 
 // const contactsInitialState = {
@@ -51,7 +51,7 @@ const contactsSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     }
-    
+
     //ADD CONTACTS
 
   },

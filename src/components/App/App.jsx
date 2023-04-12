@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ContactForm, ContactList, Filter } from '..';
 import { PhoneBookStyled } from './App.module.js';
+import { fetchContacts } from 'redux/operations';
+import { useDispatch } from 'react-redux';
 
 const PhoneBook = () => {
   return (
@@ -15,5 +17,9 @@ const PhoneBook = () => {
 };
 
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch])
   return <PhoneBook />;
 };

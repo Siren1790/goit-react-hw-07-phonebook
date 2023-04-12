@@ -1,16 +1,33 @@
 import React from 'react';
 import { Input, Form, Button } from './ContactForm.module';
-import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/operations';
+import { getContacts } from 'redux/selector';
+// import { nanoid } from '@reduxjs/toolkit';
 export const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
 
   const submitContactForm = event => {
     event.preventDefault();
+
     const form = event.target;
     const [name, number] = form.elements;
-    dispatch(addContact(name.value, number.value))
+
+    const isReapeat = contacts.some(element => element.name.toLowerCase() === name.value.toLowerCase())
+
+    if(isReapeat){
+      form.reset();
+      return alert(`${name.value} is already in contacts`);
+    }
+    
+
+    const newContact = {
+      name: name.value,
+      phone: number.value,
+    };
+
+    dispatch(addContact(newContact));
     form.reset();
   };
   return (

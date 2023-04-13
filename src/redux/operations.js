@@ -26,3 +26,15 @@ export const addContact = createAsyncThunk(
     }
   }
 );
+
+export const deleteContact = createAsyncThunk(
+  'contacts/deleteContacts',
+  async (id, thunkApi) => {
+    try {
+      const response = await axios.delete(`contacts/${id}`)
+      return response.data;
+    } catch (e){
+      return thunkApi.rejectWithValue(e.message);
+    }
+  }
+)

@@ -6,7 +6,6 @@ export const ListOfContact = styled.ul`
   margin: 0;
 `;
 
-
 export const Container = styled.div`
   width: 500px;
   margin: 0;
@@ -20,9 +19,9 @@ export const ContactItem = styled.li`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-    &:nth-child(2n+1) {
-        background-color: #d4cab6;
-    }
+  &:nth-child(2n + 1) {
+    background-color: #d4cab6;
+  }
 `;
 
 export const Button = styled.button`
@@ -37,5 +36,5 @@ export const Button = styled.button`
   border: none;
 `;
 export const Paragraph = styled.p`
-    width: 200px;
+  width: 200px;
 `;

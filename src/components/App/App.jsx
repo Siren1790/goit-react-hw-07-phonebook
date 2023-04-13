@@ -20,6 +20,6 @@ export const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchContacts());
-  }, [dispatch])
+  }, [dispatch]);
   return <PhoneBook />;
 };
